@@ -104,8 +104,8 @@ theme: ocean
 deploy:
   type: git
   repo: https://github.com/HaibiPeng/myblog #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
-  branch: [master] #published
-  message: [message]
+  branch: master #published
+  message: message
 
 ## search function
 search:
