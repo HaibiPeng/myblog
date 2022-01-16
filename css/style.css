@@ -2469,12 +2469,9 @@ pre .javascript .function {
   content: '\f18c';
 }
 .navbar .nav.nav-main .nav-item:nth-child(6) .nav-item-link::before {
-  content: '\f153';
-}
-.navbar .nav.nav-main .nav-item:nth-child(7) .nav-item-link::before {
   content: '\f1da';
 }
-.navbar .nav.nav-main .nav-item:nth-child(8) .nav-item-link::before {
+.navbar .nav.nav-main .nav-item:nth-child(7) .nav-item-link::before {
   content: '\f1d6';
 }
 .navbar-bottom {
