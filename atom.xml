@@ -3,11 +3,11 @@
   <title>PhotograpHB</title>
   
   <subtitle>💻  Frontend |  📸  Sony Alpha 7 III</subtitle>
-  <link href="https://haibipeng.github.io/atom.xml" rel="self"/>
+  <link href="https://haibipeng.github.io/myblog/atom.xml" rel="self"/>
   
-  <link href="https://haibipeng.github.io/"/>
+  <link href="https://haibipeng.github.io/myblog/"/>
   <updated>2022-01-15T13:57:25.055Z</updated>
-  <id>https://haibipeng.github.io/</id>
+  <id>https://haibipeng.github.io/myblog/</id>
   
   <author>
     <name>Haibi Peng</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://haibipeng.github.io/2022/01/14/hello-world/"/>
-    <id>https://haibipeng.github.io/2022/01/14/hello-world/</id>
+    <link href="https://haibipeng.github.io/myblog/2022/01/14/hello-world/"/>
+    <id>https://haibipeng.github.io/myblog/2022/01/14/hello-world/</id>
     <published>2022-01-14T10:07:02.379Z</published>
     <updated>2022-01-15T13:57:25.055Z</updated>
     
