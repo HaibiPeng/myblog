@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>PhotograpHB</title>
   
-  <subtitle>💻  Frontend |  📸  Sony Alpha 7 III</subtitle>
+  <subtitle>💻  Frontend |  📸  Sony α7III</subtitle>
   <link href="https://photographb.cn/atom.xml" rel="self"/>
   
   <link href="https://photographb.cn/"/>
-  <updated>2022-01-15T13:57:25.055Z</updated>
+  <updated>2022-01-16T15:41:10.384Z</updated>
   <id>https://photographb.cn/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://photographb.cn/2022/01/14/hello-world/"/>
-    <id>https://photographb.cn/2022/01/14/hello-world/</id>
-    <published>2022-01-14T10:07:02.379Z</published>
-    <updated>2022-01-15T13:57:25.055Z</updated>
+    <link href="https://photographb.cn/2022/01/16/hello-world/"/>
+    <id>https://photographb.cn/2022/01/16/hello-world/</id>
+    <published>2022-01-16T15:41:10.384Z</published>
+    <updated>2022-01-16T15:41:10.384Z</updated>
     
     
       
@@ -34,6 +34,10 @@
     
     
     
+    <category term="hello" scheme="https://photographb.cn/categories/hello/"/>
+    
+    
+    <category term="hello" scheme="https://photographb.cn/tags/hello/"/>
     
   </entry>
   
