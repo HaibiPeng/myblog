@@ -1,6 +1,5 @@
 ---
 title: Hello World
-top: ture
 tags: hello
 categories: hello
 ---
