@@ -2469,10 +2469,7 @@ pre .javascript .function {
   content: '\f18c';
 }
 .navbar .nav.nav-main .nav-item:nth-child(6) .nav-item-link::before {
-  content: '\f1da';
-}
-.navbar .nav.nav-main .nav-item:nth-child(7) .nav-item-link::before {
-  content: '\f1d6';
+  content: '\f136';
 }
 .navbar-bottom {
   position: absolute;
