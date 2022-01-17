@@ -1,9 +1,36 @@
 ---
 title: Gallery
 albums: [
+        ["https://i.imgur.com/zWrCfkI.jpg","https://i.imgur.com/zWrCfkI.jpg", "Morning moon, Stockholm"],
+        ["https://i.imgur.com/sBhnngL.jpg","https://i.imgur.com/sBhnngL.jpg", "Morning moon, Stockholm"],
         ["https://s4.ax1x.com/2022/01/15/7YCbLR.jpg","https://s4.ax1x.com/2022/01/15/7YCbLR.jpg", "Morning moon, Stockholm"],
+        ["https://i.imgur.com/ylI1HdA.jpg", "https://i.imgur.com/ylI1HdA.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/2Sj7xIv.jpg", "https://i.imgur.com/2Sj7xIv.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/H4WypQt.jpg", "https://i.imgur.com/H4WypQt.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/Xdp7jA9.jpg", "https://i.imgur.com/Xdp7jA9.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/2tR7i0s.jpg", "https://i.imgur.com/2tR7i0s.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/URQDj01.jpg", "https://i.imgur.com/URQDj01.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/mxxzdIj.jpg", "https://i.imgur.com/mxxzdIj.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/mULSfir.jpg", "https://i.imgur.com/mULSfir.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/jc5i06D.jpg", "https://i.imgur.com/jc5i06D.jpg", "Aurora, Abisko"],
+        ["https://i.imgur.com/o68VTHu.jpg", "https://i.imgur.com/o68VTHu.jpg", "2022, Abisko"],
+        ["https://i.imgur.com/ff9BMHB.jpg", "https://i.imgur.com/ff9BMHB.jpg", "2022, Abisko"],
+        ["https://s4.ax1x.com/2022/01/17/7dpzWV.jpg", "https://s4.ax1x.com/2022/01/17/7dpzWV.jpg", "Stars, Abisko"],
+        ["https://s4.ax1x.com/2022/01/17/7d9SzT.jpg", "https://s4.ax1x.com/2022/01/17/7d9SzT.jpg", "Milky Way, Abisko"],
+        ["https://i.imgur.com/uHai7z3.jpg", "https://i.imgur.com/uHai7z3.jpg", "Star trails, Abisko"],
+        ["https://i.imgur.com/rgYgafH.jpg", "https://i.imgur.com/rgYgafH.jpg", "Moon, Helsinki"],
+        ["https://s4.ax1x.com/2022/01/17/7dmMdK.jpg", "https://s4.ax1x.com/2022/01/17/7dmMdK.jpg", "Moon, Helsinki"],
+        ["https://s4.ax1x.com/2022/01/17/7dmKZ6.jpg", "https://s4.ax1x.com/2022/01/17/7dmKZ6.jpg", "Moon, Helsinki"],
+        ["https://s4.ax1x.com/2022/01/17/7dmnqx.jpg", "https://s4.ax1x.com/2022/01/17/7dmnqx.jpg", "Moon, Helsinki"],
+        ["https://s4.ax1x.com/2022/01/17/7dmms1.jpg", "https://s4.ax1x.com/2022/01/17/7dmms1.jpg", "Moon, Helsinki"],
+        ["https://i.imgur.com/yICkmeY.jpg", "https://i.imgur.com/yICkmeY.jpg", "Sunset, Malaga"],
+        ["https://i.imgur.com/D2kILgo.jpg", "https://i.imgur.com/D2kILgo.jpg", "Sunset, Malaga"],
+        ["https://i.imgur.com/VRmAKEi.jpg", "https://i.imgur.com/VRmAKEi.jpg", "Sunset, Malaga"],
+        ["https://i.imgur.com/9HImcNd.jpg", "https://i.imgur.com/9HImcNd.jpg", "Sunset, Malaga"],
+        ["https://i.imgur.com/bGyj5QG.jpg", "https://i.imgur.com/bGyj5QG.jpg", "Sunset, Malaga"],
         ["https://s4.ax1x.com/2022/01/15/7YPoAP.jpg", "https://s4.ax1x.com/2022/01/15/7YPoAP.jpg", "_yuki_"],
         ["https://s4.ax1x.com/2022/01/15/7YPb9S.jpg", "https://s4.ax1x.com/2022/01/15/7YPb9S.jpg", "_yuki_"],
-        ["https://i.imgur.com/ylI1HdA.jpg", "https://i.imgur.com/ylI1HdA.jpg", "Aurora, Abisko"]
+        ["https://i.imgur.com/FzH85oS.jpg", "https://i.imgur.com/FzH85oS.jpg", "Nyhavn/新港, Copenhagen"],
+        ["https://i.imgur.com/HnJRpxK.jpg", "https://i.imgur.com/HnJRpxK.jpg", "Den Lille Havfrue/小美人鱼, Copenhagen"],
         ]
 ---
