@@ -6,8 +6,8 @@ layout: "links"
 
 ## My Links
 <div style="display: flex; display: -webkit-flex;">
-    <a href="https://github.com/HaibiPeng" target="_blank"><img src="./mylinks/github.svg" style="padding: 0 15px"></a>
-    <a href="https://www.instagram.com/photographb0722/" target="_blank"><img src="./mylinks/instagram.svg"></a>
+    <a href="https://github.com/HaibiPeng" target="_blank"><img src="./mylinks/github.svg"></a>
+    <a href="https://www.instagram.com/photographb0722/" target="_blank"><img src="./mylinks/instagram.svg" style="padding: 0 15px"></a>
     <a href="https://space.bilibili.com/5405796?spm_id_from=333.1007.0.0" target="_blank"><img src="./mylinks/bilibili.svg" width="75px"></a>
 </div>
 <p>————————————————————</p>
