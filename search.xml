@@ -24,4 +24,70 @@
         <tag>hello</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo+GitHubPages+腾讯云搭建个人博客</title>
+    <url>/2022/01/17/blog-how-to/</url>
+    <content><![CDATA[<p>本教程需要读者具有基础的编辑器(VSCode/WebStorm/其他…)和命令行知识，以及文档教程阅读和复现能力。以下大致说明以下步骤吧。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="安装依赖项和Hexo"><a href="#安装依赖项和Hexo" class="headerlink" title="安装依赖项和Hexo"></a>安装依赖项和Hexo</h3><p>按照官方文档安装所需程序（Node.js/Git）。</p>
+<p>安装指南传送门：</p>
+<ol>
+<li><a href="https://www.runoob.com/nodejs/nodejs-install-setup.html">Node.js</a></li>
+<li><a href="https://www.runoob.com/git/git-install-setup.html">Git</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">Hexo</a></li>
+</ol>
+<h3 id="使用Hexo建站并修改配置"><a href="#使用Hexo建站并修改配置" class="headerlink" title="使用Hexo建站并修改配置"></a>使用Hexo建站并修改配置</h3><p>详见官方文档：</p>
+<ol>
+<li><a href="https://hexo.io/zh-cn/docs/setup">建站</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/configuration">修改配置</a></li>
+</ol>
+<h3 id="启动网站"><a href="#启动网站" class="headerlink" title="启动网站"></a>启动网站</h3><p>在命令行运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>然后再浏览器输入 <a href="http://localhost:4000/">http://localhost:4000/</a> 就可以打开网站看到原始版的个人博客网站了。</p>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>这一部分需要你有一个github的账号，以及新建一个repo，并且将上一步Hexo中的代码关联到这个repo。</p>
+<h3 id="创建GitHub-Pages站点"><a href="#创建GitHub-Pages站点" class="headerlink" title="创建GitHub Pages站点"></a>创建GitHub Pages站点</h3><p>指南传送门：<a href="https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site">创建GitHub Pages站点</a></p>
+<h3 id="修改博客url"><a href="#修改博客url" class="headerlink" title="修改博客url"></a>修改博客url</h3><p>在_config.yml文件中修改url为你的repo的Github Pages的网址：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/repo&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://username.github.io/repo</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="部署到GitHub-Pages"><a href="#部署到GitHub-Pages" class="headerlink" title="部署到GitHub Pages"></a>部署到GitHub Pages</h3><ol>
+<li>安装 hexo-deployer-git。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>修改配置：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span> <span class="comment">#repo的地址，如https://github.com/username/repo</span></span><br><span class="line">  <span class="attr">branch:</span> [<span class="string">branch</span>] <span class="comment">#需要部署的代码分支，如main、master，需要去掉[]</span></span><br><span class="line">  <span class="attr">message:</span> [<span class="string">message</span>] <span class="comment">#部署信息，可以随便填，需要去掉[]</span></span><br></pre></td></tr></table></figure></li>
+<li><p>生成站点文件并推送至远程库</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>在库设置（Repository Settings）中将默认分支设置为_config.yml配置中的分支名称就可以了。</li>
+</ol>
+<p>这样你就可以用GitHub Pages的url打开你的个人博客了。</p>
+<p>更详细的指南请移步官方文档: <a href="https://hexo.io/zh-cn/docs/one-command-deployment">一键部署到GitHub</a></p>
+<h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><h3 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h3><p>购买申请指南请移步：<a href="https://dnspod.cloud.tencent.com/">腾讯云购买域名</a></p>
+<p>其中需要一堆实名认证过程，请按照官方文档操作。</p>
+<h3 id="绑定到Github-Pages"><a href="#绑定到Github-Pages" class="headerlink" title="绑定到Github Pages"></a>绑定到Github Pages</h3><p>详见这篇博客: <a href="https://cloud.tencent.com/developer/article/1421879">GitHub Pages搭建的博客绑定域名</a></p>
+<p>添加DNS解析部分详见这篇，需要用命令行ping一下自己的github page获取ip地址：<a href="https://cloud.tencent.com/developer/article/1454059">github pages绑定域名</a></p>
+<h3 id="修改先前的配置"><a href="#修改先前的配置" class="headerlink" title="修改先前的配置"></a>修改先前的配置</h3><p>在第二步中将博客url设置成了自己的GitHub Pages的url，而既然我们已经有了自己的域名，就需要把之前的url换成我们自己的域名：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## 你自己申请的域名</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://username.cn</span></span><br></pre></td></tr></table></figure>
+
+<p>大功告成。</p>
+<h2 id="Hexo主题"><a href="#Hexo主题" class="headerlink" title="Hexo主题"></a>Hexo主题</h2><p>如果你觉得默认主题不太好看，是可以自己设计或者更换主题的。</p>
+<p>官方文档：<a href="https://hexo.io/zh-cn/docs/themes">主题</a></p>
+<p>官方还有一个<a href="https://hexo.io/themes/">主题库</a>，可以搜索自己觉得好看的主题，然后去主题的GitHub repo下载并移到自己博客的theme文件夹下，修改对应配置为这个主题的名字。</p>
+<p>比如我用的主题为[ocean](<a href="https://github.com/zhwangart/hexo-theme-ocean.git">https://github.com/zhwangart/hexo-theme-ocean.git</a> themes/ocean)，就在root _config.yml 中选择 theme: ocean：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">ocean</span></span><br></pre></td></tr></table></figure>
+
+<p>其他个性化配置就需要参考每个主题的相关文档了，一般是主题的设计开发者写的，没有的话就需要自己摸索了。主题里的各种图标，图片，视频等等都是可以自己换的，可能需要使用者有一些css、html和markdown的基础，这里就不深入下去了，有兴趣的话各位自己学习吧哈哈哈。</p>
+]]></content>
+      <categories>
+        <category>Hexo, 个人博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo, 个人博客</tag>
+      </tags>
+  </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="https://photographb.cn/atom.xml" rel="self"/>
   
   <link href="https://photographb.cn/"/>
-  <updated>2022-01-16T15:41:10.384Z</updated>
+  <updated>2022-01-17T15:25:47.554Z</updated>
   <id>https://photographb.cn/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo+GitHubPages+腾讯云搭建个人博客</title>
+    <link href="https://photographb.cn/2022/01/17/blog-how-to/"/>
+    <id>https://photographb.cn/2022/01/17/blog-how-to/</id>
+    <published>2022-01-17T14:19:37.000Z</published>
+    <updated>2022-01-17T15:25:47.554Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本教程需要读者具有基础的编辑器(VSCode/WebStorm/其他…)和命令行知识，以及文档教程阅读和复现能力。以下大致说明以下步骤吧。&lt;/p&gt;
+&lt;h2 id=&quot;Hexo&quot;&gt;&lt;a href=&quot;#Hexo&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Hexo, 个人博客" scheme="https://photographb.cn/categories/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="Hexo, 个人博客" scheme="https://photographb.cn/tags/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://photographb.cn/2022/01/16/hello-world/"/>
     <id>https://photographb.cn/2022/01/16/hello-world/</id>
     <published>2022-01-16T15:41:10.384Z</published>
-    <updated>2022-01-16T15:41:10.384Z</updated>
+    <updated>2022-01-17T14:18:35.552Z</updated>
     
     
       
