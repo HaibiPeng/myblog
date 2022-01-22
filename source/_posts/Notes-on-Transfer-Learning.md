@@ -2,7 +2,9 @@
 title: Notes on Transfer Learning
 tags: 'Transfer Learning, Machine Learning, Deep Learning'
 date: 2022-01-23 01:21:34
-categories: Machine Learning, Deep Learning
+categories:
+- [Machine Learning]
+- [Deep Learning]
 ---
 
 

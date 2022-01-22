@@ -2,7 +2,9 @@
 title: Notes on Neural Network
 tags: 'Deep Learning, Neural Network'
 date: 2022-01-23 01:20:43
-categories: Machine Learning, Deep Learning
+categories:
+- [Machine Learning]
+- [Deep Learning]
 ---
 
 
