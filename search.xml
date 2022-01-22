@@ -109,6 +109,9 @@
 <li><a href="https://github.com/googlecreativelab/teachable-machine-boilerplate">https://github.com/googlecreativelab/teachable-machine-boilerplate</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>Machine Learning, Deep Learning</category>
+      </categories>
       <tags>
         <tag>Transfer Learning, Machine Learning, Deep Learning</tag>
       </tags>
@@ -177,6 +180,9 @@
 <li><a href="https://machinelearningmastery.com/gradient-descent-for-machine-learning/">Gradient Descent For Machine Learning</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>Machine Learning, Deep Learning</category>
+      </categories>
       <tags>
         <tag>Deep Learning, Neural Network</tag>
       </tags>

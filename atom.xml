@@ -6,7 +6,7 @@
   <link href="https://photographb.cn/atom.xml" rel="self"/>
   
   <link href="https://photographb.cn/"/>
-  <updated>2022-01-22T23:35:45.052Z</updated>
+  <updated>2022-01-22T23:39:28.676Z</updated>
   <id>https://photographb.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://photographb.cn/2022/01/23/Notes-on-Transfer-Learning/"/>
     <id>https://photographb.cn/2022/01/23/Notes-on-Transfer-Learning/</id>
     <published>2022-01-22T23:21:34.000Z</published>
-    <updated>2022-01-22T23:35:45.052Z</updated>
+    <updated>2022-01-22T23:39:28.676Z</updated>
     
     
       
@@ -34,6 +34,8 @@
     
     
     
+    <category term="Machine Learning, Deep Learning" scheme="https://photographb.cn/categories/Machine-Learning-Deep-Learning/"/>
+    
     
     <category term="Transfer Learning, Machine Learning, Deep Learning" scheme="https://photographb.cn/tags/Transfer-Learning-Machine-Learning-Deep-Learning/"/>
     
@@ -44,7 +46,7 @@
     <link href="https://photographb.cn/2022/01/23/Notes-on-Neural-Network/"/>
     <id>https://photographb.cn/2022/01/23/Notes-on-Neural-Network/</id>
     <published>2022-01-22T23:20:43.000Z</published>
-    <updated>2022-01-22T23:20:43.247Z</updated>
+    <updated>2022-01-22T23:39:33.661Z</updated>
     
     
       
@@ -56,6 +58,8 @@
       
     
     
+    
+    <category term="Machine Learning, Deep Learning" scheme="https://photographb.cn/categories/Machine-Learning-Deep-Learning/"/>
     
     
     <category term="Deep Learning, Neural Network" scheme="https://photographb.cn/tags/Deep-Learning-Neural-Network/"/>
