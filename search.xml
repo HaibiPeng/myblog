@@ -1,6 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Notes on Transfer Learning</title>
+    <url>/2022/01/23/Notes-on-Transfer-Learning/</url>
+    <content><![CDATA[<h1 id="Transfer-Learning"><a href="#Transfer-Learning" class="headerlink" title="Transfer Learning"></a>Transfer Learning</h1><h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><h3 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h3><p><a href="https://en.wikipedia.org/wiki/Transfer_learning">Transfer learning (TL)</a> is a research problem in machine learning (ML) that focuses on <strong>storing knowledge gained while solving one problem and applying it to a different but related problem</strong>.</p>
+<p>It is a machine-learning method where the application of knowledge <strong>obtained from a model used in one task</strong> can be <strong>reused as a foundation point</strong> for another task.</p>
+<ul>
+<li>Ability of a system to recognize and apply knowledge and skills learned in previous domains/tasks to novel domains/tasks.</li>
+</ul>
+<h3 id="2-Domain-and-Task"><a href="#2-Domain-and-Task" class="headerlink" title="2. Domain and Task"></a>2. Domain and Task</h3><ul>
+<li><p>Domain: consists of: a <a href="https://en.wikipedia.org/wiki/Feature_space">feature space</a> X and a <a href="https://en.wikipedia.org/wiki/Marginal_distribution">marginal probability distribution</a> P(X)</p>
+</li>
+<li><p>Task: consists of two components: a label space Y and an objective predictive function f: X → Y</p>
+</li>
+</ul>
+<h2 id="Different-Types-of-Transfer-Learning"><a href="#Different-Types-of-Transfer-Learning" class="headerlink" title="Different Types of Transfer Learning"></a>Different Types of Transfer Learning</h2><p>(1) <strong>Inductive Transfer Learning (归纳式迁移学习).</strong> The source and target <em><strong>domains are the same(domains一样)</strong></em>, however, their <em><strong>tasks are still different(tasks不一样)</strong></em> from each another. The model will use <em><strong>inductive biases</strong></em> from the source domain to help improve the performance of the target task. The source task <em><strong>may or may not contain labeled data</strong></em>, further leading onto the model using multitask learning and self-taught learning.</p>
+<ul>
+<li><strong>multitask learning（多任务学习）</strong>：source domain的labeled数据可得。</li>
+<li><strong>self-taught learning（自学习）</strong>：source domain的labeled数据不可得。</li>
+</ul>
+<p>(2) <strong>Transductive Transfer Learning (直推式迁移学习).</strong> The source and target <em><strong>tasks share similarities(tasks类似)</strong></em>, however, the <em><strong>domains are different(domains不一样)</strong></em>. The source domain contains a lot of <em><strong>labeled data</strong></em>, whereas there is <em><strong>an absence of labeled</strong></em> data in the target domain, further leading onto the model using domain adaptation.</p>
+<p>Based on the number of domains and tasks, it can also be further divided into two types:</p>
+<ul>
+<li><strong>Domain Adaptation（域适配）</strong>：不同的domains+single task</li>
+<li><strong>Sample Selection Bias（样本选择偏差 / Covariance Shift（协方差转变）</strong>：single domain+single task</li>
+</ul>
+<p>(3) <strong>Unsupervised Transfer Learning (无监督迁移学习).</strong> Unsupervised learning is when an algorithm is <em><strong>subjected to being able to identify patterns in data sets that have not been labeled or classified</strong></em>. In this case, the source and target <em><strong>domains are similar(domains类似)</strong></em>, however, <em><strong>the tasks are different</strong></em>, where <em><strong>data is unlabeled in both source and target(都不可得)</strong></em>. Techniques such as dimensionality reduction and clustering are well known in unsupervised learning.</p>
+<p>Summarization the different settings and scenarios for each of the above techniques in the following table.</p>
+<figure>
+    <img src="https://miro.medium.com/max/2000/1*ZEJeJS06czdyPwov5EbCuQ.png" alt="Types of Transfer Learning Strategies and their Settings">
+    <figcaption align="center" style="font-size: 12px">Types of Transfer Learning Strategies and their Settings</figcaption>
+</figure>
+
+
+<h2 id="What-to-transfer"><a href="#What-to-transfer" class="headerlink" title="What to transfer"></a>What to transfer</h2><h3 id="1-Homogeneous-Transfer-Learning-同构迁移学习"><a href="#1-Homogeneous-Transfer-Learning-同构迁移学习" class="headerlink" title="1. Homogeneous Transfer Learning (同构迁移学习)"></a>1. <strong>Homogeneous Transfer Learning</strong> (同构迁移学习)</h3><p>Homogeneous Transfer learning approaches are developed and proposed to handle situations where <em><strong>the domains are of the same feature space</strong></em>.</p>
+<p>In Homogeneous Transfer learning, <em><strong>domains have only a slight difference in marginal distributions</strong></em>. These approaches adapt the domains by <em><strong>correcting the sample selection bias or covariate shift</strong></em>.</p>
+<p>(1) <strong>Instance-based transfer</strong>（样本迁移）</p>
+<p>It covers a simple scenario in which there is <em><strong>a large amount of labeled data in the source domain and a limited number in the target domain</strong></em>. Both the domains and feature spaces <em><strong>differ only in marginal distributions</strong></em>.</p>
+<p>In this scenario, it is natural to consider <em><strong>adapting the marginal distributions</strong></em>. Instance-based Transfer learning <em><strong>reassigns weights to the source domain instances in the loss function</strong></em>.</p>
+<p>Instance reweighting（样本重新调整权重） and importance sampling（重要性采样）are two main approaches used in instance-based TL.</p>
+<p>(2) <strong>Feature-representation transfer</strong>（特征迁移）</p>
+<p>Feature-based approaches transform the original features to create a new feature representation. This approach can further be divided into two subcategories, i.e., asymmetric and symmetric Feature-based Transfer Learning.</p>
+<ul>
+<li><strong>Asymmetric approaches</strong> transform the source features to match the target ones. In other words, we <em><strong>take the features from the source domain and fit them into the target feature space</strong></em>. There can be some information loss in this process due to the marginal difference in the feature distribution.</li>
+<li><strong>Symmetric approaches</strong> find a common latent feature space and then transform both the source and the target features into this new feature representation.</li>
+</ul>
+<p>(3) <strong>Parameter transfer</strong>（参数/模型迁移）</p>
+<p>The parameter-based transfer learning approaches transfer the knowledge at the <em><strong>model/parameter level</strong></em>.</p>
+<p>This approach involves transferring knowledge through the shared parameters of the source and target domain learner models. One way to transfer the learned knowledge can be <em><strong>by creating multiple source learner models and optimally combining the re-weighted learners similar to ensemble learners to form an improved target learner</strong></em>.</p>
+<p>The idea behind parameter-based methods is that <em><strong>a well-trained model on the source domain has learned a well-defined structure, and if two tasks are related, this structure can be transferred to the target model</strong></em>. In general, there are two ways to share the weights in deep learning models: </p>
+<ul>
+<li><strong>Soft weight sharing</strong>. The model is expected to be close to the already learned features and is usually penalized if its weights deviate significantly from a given set of weights.</li>
+<li><strong>Hard weight sharing</strong>. We share the exact weights among different models.</li>
+</ul>
+<p>(4) <strong>Relational-knowledge transfer</strong>（关系迁移）</p>
+<p>Relational-based transfer learning approaches mainly focus on <em><strong>learning the relations between the source and a target domain</strong></em> and <em><strong>using this knowledge to derive past knowledge and use it in the current context</strong></em>.</p>
+<p>Such approaches transfer <em><strong>the logical relationship or rules learned in the source domain to the target domain</strong></em>.</p>
+<p>For example, if we learn the relationship between different elements of the speech in a male voice, it can help significantly to analyze the sentence in another voice.</p>
+<h3 id="2-Heterogeneous-Transfer-Learning-异构迁移学习"><a href="#2-Heterogeneous-Transfer-Learning-异构迁移学习" class="headerlink" title="2. Heterogeneous Transfer Learning (异构迁移学习)"></a>2. <strong>Heterogeneous Transfer Learning</strong> (异构迁移学习)</h3><p>It is often challenging to collect labeled source domain data with the same feature space as the target domain, and Heterogeneous Transfer learning methods are developed to address such limitations.  </p>
+<p>This technique aims to <em><strong>solve the issue of source and target domains having differing feature spaces and other concerns like differing data distributions and label spaces</strong></em>. Heterogeneous Transfer Learning is applied in cross-domain tasks such as cross-language text categorization, text-to-image classification, and many others.</p>
+<p>The following table clearly summarizes the relationship between different transfer learning strategies and what to transfer.</p>
+<figure>
+    <img src="https://miro.medium.com/max/700/1*xK81ohzG-tLRKVexowUvgw.png" alt="Transfer Learning Strategies and Types of Transferable Components">
+    <figcaption align="center" style="font-size: 12px">Transfer Learning Strategies and Types of Transferable Components</figcaption>
+</figure>
+
+<figure>
+    <img src="https://miro.medium.com/max/611/1*mEHO0-LifV7MgwXSpY9wyQ.png" alt="An overview of different settings of transfer">
+    <figcaption align="center" style="font-size: 12px">An overview of different settings of transfer</figcaption>
+</figure>
+
+<h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><h3 id="For-computer-vision"><a href="#For-computer-vision" class="headerlink" title="For computer vision"></a>For computer vision</h3><ol>
+<li>Xception</li>
+<li>VGG16</li>
+<li>VGG19</li>
+<li>ResNet50</li>
+<li>InceptionV3</li>
+<li>InceptionResNetV2</li>
+<li>MobileNet</li>
+<li>MobileNetV2</li>
+<li>DenseNetV2</li>
+<li>DenseNet121</li>
+<li>DenseNet169</li>
+<li>DenseNet201</li>
+<li>NASNetMobile</li>
+<li>NASNetLarge</li>
+</ol>
+<h3 id="For-natural-language-processing"><a href="#For-natural-language-processing" class="headerlink" title="For natural language processing"></a>For natural language processing</h3><ol>
+<li>Universal Sentence Encoder by Google</li>
+<li>Bidirectional Encoder Representations from Transformers (BERT) by Google</li>
+</ol>
+<h3 id="For-sound-recognition"><a href="#For-sound-recognition" class="headerlink" title="For sound recognition"></a>For sound recognition</h3><ol>
+<li>AudioSet</li>
+<li>FreeSound</li>
+<li>SoundWatch</li>
+</ol>
+<h1 id="References-sources"><a href="#References-sources" class="headerlink" title="References/sources"></a>References/sources</h1><ol>
+<li><a href="https://towardsdatascience.com/a-comprehensive-hands-on-guide-to-transfer-learning-with-real-world-applications-in-deep-learning-212bf3b2f27a">A Comprehensive Hands-on Guide to Transfer Learning with Real-World Applications in Deep Learning</a></li>
+<li><a href="https://www.v7labs.com/blog/transfer-learning-guide">A Newbie-Friendly Guide to Transfer Learning</a></li>
+<li><a href="https://blog.csdn.net/vvnzhang2095/article/details/79882013?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&utm_relevant_index=2">迁移学习–综述</a></li>
+<li>Pan S J, Yang Q. A survey on transfer learning[J]. IEEE Transactions on knowledge and data engineering, 2009, 22(10): 1345-1359.</li>
+<li>Weiss K, Khoshgoftaar T M, Wang D D. A survey of transfer learning[J]. Journal of Big data, 2016, 3(1): 1-40.</li>
+<li>Zhuang F, Qi Z, Duan K, et al. A comprehensive survey on transfer learning[J]. Proceedings of the IEEE, 2020, 109(1): 43-76.</li>
+<li>Carney M, Webster B, Alvarado I, et al. Teachable machine: Approachable Web-based tool for exploring machine learning classification[C]//Extended abstracts of the 2020 CHI conference on human factors in computing systems. 2020: 1-8.</li>
+<li>Goodman S M, Liu P, Jain D, et al. Toward user-driven sound recognizer personalization with people who are d/deaf or hard of hearing[J]. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2021, 5(2): 1-23.</li>
+<li>Laput G, Ahuja K, Goel M, et al. Ubicoustics: Plug-and-play acoustic activity recognition[C]//Proceedings of the 31st Annual ACM Symposium on User Interface Software and Technology. 2018: 213-224.</li>
+<li><a href="https://github.com/jindongwang/transferlearning">https://github.com/jindongwang/transferlearning</a></li>
+<li><a href="https://github.com/googlecreativelab/teachable-machine-boilerplate">https://github.com/googlecreativelab/teachable-machine-boilerplate</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Transfer Learning, Machine Learning, Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Notes on Neural Network</title>
+    <url>/2022/01/23/Notes-on-Neural-Network/</url>
+    <content><![CDATA[<h1 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h1><h2 id="Forward-Propagation"><a href="#Forward-Propagation" class="headerlink" title="Forward Propagation"></a><strong>Forward Propagation</strong></h2><p><em><strong><a href="https://www.youtube.com/watch?v=UJwK6jAStmg">Forward Propagation</a></strong></em> refers to the calculation and storage of intermediate variables (including outputs) for a neural network in order from the input layer to the output layer.</p>
+<p>It is how neural networks make predictions. Input data is “forward propagated” through the network layer by layer to the final layer which outputs a prediction.</p>
+<h3 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li>Calculate the weighted input to the hidden layer by multiplying 𝑋 by the hidden weight 𝑊ℎ</li>
+<li>Apply the input of hidden layer to activation function and pass the result(output of hidden layer) to the final layer</li>
+<li>Repeat step 2 except this time 𝑋 is replaced by the hidden layer’s output, 𝐻</li>
+</ol>
+<h2 id="Cost-Loss-Error-Function"><a href="#Cost-Loss-Error-Function" class="headerlink" title="Cost/Loss/Error Function"></a><strong><a href="https://en.wikipedia.org/wiki/Loss_function">Cost/Loss/Error Function</a></strong></h2><p>A loss function/error function(defined on a data point, prediction and label, and measures the penalty) is <em><strong>for a single training example/input</strong></em>. A cost function, on the other hand, is <em><strong>the average loss over the entire training dataset</strong></em>, which might be a sum of loss functions over your training set plus some model complexity penalty (regularization).<br>The optimization strategies aim at “minimizing the cost function”.</p>
+<ul>
+<li><p><a href="https://stats.stackexchange.com/questions/179026/objective-function-cost-function-loss-function-are-they-the-same-thing">Objective function, cost function, loss function: are they the same thing?</a></p>
+</li>
+<li><p>A loss function is a part of a cost function which is a type of an objective function.</p>
+</li>
+</ul>
+<h2 id="Back-Propagation"><a href="#Back-Propagation" class="headerlink" title="Back Propagation"></a><strong>Back Propagation</strong></h2><p><em><strong><a href="https://www.cnblogs.com/charlotte77/p/5629865.html">Back Propagation</a></strong></em> refers to the method of calculating the gradient of neural network parameters. In short, the method traverses the network in reverse order, from the output to the input layer, according to the chain rule from calculus. The algorithm stores any intermediate variables (partial derivatives) required while calculating the gradient with respect to some parameters.</p>
+<p>The goals of backpropagation are straightforward: <em><strong>adjust each weight in the network in proportion to how much it contributes to overall error</strong></em>. If we iteratively reduce each weight’s error, eventually we’ll have a series of weights that produce good predictions.</p>
+<h3 id="Steps-1"><a href="#Steps-1" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li>Compare the actual value output by the forward propagation process to the expected value</li>
+<li>Moves backward through the network, slightly adjusting each of the weights in a direction that reduces the size of the error by a small degree</li>
+<li>Both forward and back propagation are re-run thousands of times on each input combination until the network can accurately predict the expected output of the possible inputs using forward propagation.</li>
+</ol>
+<h3 id="Formulas-and-derivation"><a href="#Formulas-and-derivation" class="headerlink" title="Formulas and derivation"></a>Formulas and derivation</h3><ol>
+<li><a href="https://blog.csdn.net/u014313009/article/details/51039334?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&utm_relevant_index=2">反向传播算法（过程及公式推导）</a></li>
+<li><a href="https://brilliant.org/wiki/backpropagation/#">Backpropagation</a></li>
+<li><a href="https://www.cnblogs.com/charlotte77/p/5629865.html">一文弄懂神经网络中的反向传播法——BackPropagation</a></li>
+</ol>
+<h2 id="Stochastic-Gradient-Descent-Algorithm"><a href="#Stochastic-Gradient-Descent-Algorithm" class="headerlink" title="Stochastic Gradient Descent Algorithm"></a><strong>Stochastic Gradient Descent Algorithm</strong></h2><p><em><strong>Gradient descent</strong></em> is an iterative algorithm, that starts from a random point on a function and travels down its slope in steps until it reaches the lowest point of that function.</p>
+<p>Gradient descent <strong>can be slow to run on very large datasets</strong>.</p>
+<p>Because one iteration of the gradient descent algorithm requires a prediction for each instance in the training dataset, it can <strong>take a long time when you have many millions of instances</strong>.</p>
+<p><em><strong>Stochastic Gradient Descent(SGD)</strong></em> is a stochastic approximation of gradient descent optimization, since it replaces the actual gradient (calculated from the entire data set) by an estimate thereof (calculated from a randomly selected subset of the data). </p>
+<p>In this variation, the gradient descent procedure is run but the update to the coefficients is performed for each training instance, rather than at the end of the batch of instances.</p>
+<p>It is while selecting data points at each step to calculate the derivatives that induces randomness in gradient descent algorithm. SGD randomly picks one data point from the whole data set at each iteration to reduce the computations enormously.</p>
+<ul>
+<li><a href="https://www.analyticsvidhya.com/blog/2020/10/how-does-the-gradient-descent-algorithm-work-in-machine-learning/">How Does the Gradient Descent Algorithm Work in Machine Learning?</a></li>
+<li><a href="https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31">Stochastic Gradient Descent — Clearly Explained !!</a></li>
+<li><a href="https://machinelearningmastery.com/gradient-descent-for-machine-learning/">Gradient Descent For Machine Learning</a></li>
+</ul>
+<h2 id="Activation-Functions"><a href="#Activation-Functions" class="headerlink" title="Activation Functions"></a><strong>Activation Functions</strong></h2><ul>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#linear">Linear</a></li>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#elu">ELU</a></li>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#relu">ReLU</a></li>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#leakyrelu">LeakyReLU</a></li>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#sigmoid">Sigmoid</a></li>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#tanh">Tanh</a></li>
+<li><a href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#softmax">Softmax</a></li>
+</ul>
+<h2 id="References-Sources"><a href="#References-Sources" class="headerlink" title="References/Sources"></a>References/Sources</h2><ol>
+<li><a href="https://en.wikipedia.org/wiki/Gradient">https://en.wikipedia.org/wiki/Gradient</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gradient_descent">https://en.wikipedia.org/wiki/Gradient_descent</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/34378516">神经网络（全连接）的前向和反向传播</a></li>
+<li><a href="https://www.youtube.com/watch?v=UJwK6jAStmg">https://www.youtube.com/watch?v=UJwK6jAStmg</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Loss_function">https://en.wikipedia.org/wiki/Loss_function</a></li>
+<li><a href="https://stats.stackexchange.com/questions/179026/objective-function-cost-function-loss-function-are-they-the-same-thing">https://stats.stackexchange.com/questions/179026/objective-function-cost-function-loss-function-are-they-the-same-thing</a></li>
+<li><a href="https://blog.csdn.net/u014313009/article/details/51039334?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&utm_relevant_index=2">反向传播算法（过程及公式推导）</a></li>
+<li><a href="https://brilliant.org/wiki/backpropagation/#">Backpropagation</a></li>
+<li><a href="https://www.cnblogs.com/charlotte77/p/5629865.html">一文弄懂神经网络中的反向传播法——BackPropagation</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2020/10/how-does-the-gradient-descent-algorithm-work-in-machine-learning/">How Does the Gradient Descent Algorithm Work in Machine Learning?</a></li>
+<li><a href="https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31">Stochastic Gradient Descent — Clearly Explained !!</a></li>
+<li><a href="https://machinelearningmastery.com/gradient-descent-for-machine-learning/">Gradient Descent For Machine Learning</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Deep Learning, Neural Network</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+GitHubPages+腾讯云搭建个人博客</title>
     <url>/2022/01/17/blog-how-to/</url>
     <content><![CDATA[<p>本教程需要读者具有基础的编辑器(VSCode/WebStorm/其他…)和命令行知识，以及文档教程阅读和复现能力。以下大致说明以下步骤吧。</p>

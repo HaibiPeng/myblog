@@ -6,7 +6,7 @@
   <link href="https://photographb.cn/atom.xml" rel="self"/>
   
   <link href="https://photographb.cn/"/>
-  <updated>2022-01-17T15:25:47.554Z</updated>
+  <updated>2022-01-22T23:35:45.052Z</updated>
   <id>https://photographb.cn/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Notes on Transfer Learning</title>
+    <link href="https://photographb.cn/2022/01/23/Notes-on-Transfer-Learning/"/>
+    <id>https://photographb.cn/2022/01/23/Notes-on-Transfer-Learning/</id>
+    <published>2022-01-22T23:21:34.000Z</published>
+    <updated>2022-01-22T23:35:45.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Transfer-Learning&quot;&gt;&lt;a href=&quot;#Transfer-Learning&quot; class=&quot;headerlink&quot; title=&quot;Transfer Learning&quot;&gt;&lt;/a&gt;Transfer Learning&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Transfer Learning, Machine Learning, Deep Learning" scheme="https://photographb.cn/tags/Transfer-Learning-Machine-Learning-Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes on Neural Network</title>
+    <link href="https://photographb.cn/2022/01/23/Notes-on-Neural-Network/"/>
+    <id>https://photographb.cn/2022/01/23/Notes-on-Neural-Network/</id>
+    <published>2022-01-22T23:20:43.000Z</published>
+    <updated>2022-01-22T23:20:43.247Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Neural-Network&quot;&gt;&lt;a href=&quot;#Neural-Network&quot; class=&quot;headerlink&quot; title=&quot;Neural Network&quot;&gt;&lt;/a&gt;Neural Network&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Deep Learning, Neural Network" scheme="https://photographb.cn/tags/Deep-Learning-Neural-Network/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo+GitHubPages+腾讯云搭建个人博客</title>

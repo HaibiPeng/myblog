@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="programmer, photographer, PHB, PhotograpHB">
+  
+  
+  <meta name="description" content="All about a Programmer, a Photographer and PHB">
+  
+  <title>
+    Notes on Neural Network |
+    
+    PhotograpHB
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="PhotograpHB" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-Notes-on-Neural-Network" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  Notes on Neural Network
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/01/23/Notes-on-Neural-Network/" class="article-date">
+  <time datetime="2022-01-22T23:20:43.000Z" itemprop="datePublished">2022-01-23</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      <!--  -->
+      
+      
+      
+      <h1 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h1><h2 id="Forward-Propagation"><a href="#Forward-Propagation" class="headerlink" title="Forward Propagation"></a><strong>Forward Propagation</strong></h2><p><em><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UJwK6jAStmg">Forward Propagation</a></strong></em> refers to the calculation and storage of intermediate variables (including outputs) for a neural network in order from the input layer to the output layer.</p>
+<p>It is how neural networks make predictions. Input data is “forward propagated” through the network layer by layer to the final layer which outputs a prediction.</p>
+<h3 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li>Calculate the weighted input to the hidden layer by multiplying 𝑋 by the hidden weight 𝑊ℎ</li>
+<li>Apply the input of hidden layer to activation function and pass the result(output of hidden layer) to the final layer</li>
+<li>Repeat step 2 except this time 𝑋 is replaced by the hidden layer’s output, 𝐻</li>
+</ol>
+<h2 id="Cost-Loss-Error-Function"><a href="#Cost-Loss-Error-Function" class="headerlink" title="Cost/Loss/Error Function"></a><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Loss_function">Cost/Loss/Error Function</a></strong></h2><p>A loss function/error function(defined on a data point, prediction and label, and measures the penalty) is <em><strong>for a single training example/input</strong></em>. A cost function, on the other hand, is <em><strong>the average loss over the entire training dataset</strong></em>, which might be a sum of loss functions over your training set plus some model complexity penalty (regularization).<br>The optimization strategies aim at “minimizing the cost function”.</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/179026/objective-function-cost-function-loss-function-are-they-the-same-thing">Objective function, cost function, loss function: are they the same thing?</a></p>
+</li>
+<li><p>A loss function is a part of a cost function which is a type of an objective function.</p>
+</li>
+</ul>
+<h2 id="Back-Propagation"><a href="#Back-Propagation" class="headerlink" title="Back Propagation"></a><strong>Back Propagation</strong></h2><p><em><strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/charlotte77/p/5629865.html">Back Propagation</a></strong></em> refers to the method of calculating the gradient of neural network parameters. In short, the method traverses the network in reverse order, from the output to the input layer, according to the chain rule from calculus. The algorithm stores any intermediate variables (partial derivatives) required while calculating the gradient with respect to some parameters.</p>
+<p>The goals of backpropagation are straightforward: <em><strong>adjust each weight in the network in proportion to how much it contributes to overall error</strong></em>. If we iteratively reduce each weight’s error, eventually we’ll have a series of weights that produce good predictions.</p>
+<h3 id="Steps-1"><a href="#Steps-1" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li>Compare the actual value output by the forward propagation process to the expected value</li>
+<li>Moves backward through the network, slightly adjusting each of the weights in a direction that reduces the size of the error by a small degree</li>
+<li>Both forward and back propagation are re-run thousands of times on each input combination until the network can accurately predict the expected output of the possible inputs using forward propagation.</li>
+</ol>
+<h3 id="Formulas-and-derivation"><a href="#Formulas-and-derivation" class="headerlink" title="Formulas and derivation"></a>Formulas and derivation</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014313009/article/details/51039334?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&utm_relevant_index=2">反向传播算法（过程及公式推导）</a></li>
+<li><a target="_blank" rel="noopener" href="https://brilliant.org/wiki/backpropagation/#">Backpropagation</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/charlotte77/p/5629865.html">一文弄懂神经网络中的反向传播法——BackPropagation</a></li>
+</ol>
+<h2 id="Stochastic-Gradient-Descent-Algorithm"><a href="#Stochastic-Gradient-Descent-Algorithm" class="headerlink" title="Stochastic Gradient Descent Algorithm"></a><strong>Stochastic Gradient Descent Algorithm</strong></h2><p><em><strong>Gradient descent</strong></em> is an iterative algorithm, that starts from a random point on a function and travels down its slope in steps until it reaches the lowest point of that function.</p>
+<p>Gradient descent <strong>can be slow to run on very large datasets</strong>.</p>
+<p>Because one iteration of the gradient descent algorithm requires a prediction for each instance in the training dataset, it can <strong>take a long time when you have many millions of instances</strong>.</p>
+<p><em><strong>Stochastic Gradient Descent(SGD)</strong></em> is a stochastic approximation of gradient descent optimization, since it replaces the actual gradient (calculated from the entire data set) by an estimate thereof (calculated from a randomly selected subset of the data). </p>
+<p>In this variation, the gradient descent procedure is run but the update to the coefficients is performed for each training instance, rather than at the end of the batch of instances.</p>
+<p>It is while selecting data points at each step to calculate the derivatives that induces randomness in gradient descent algorithm. SGD randomly picks one data point from the whole data set at each iteration to reduce the computations enormously.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2020/10/how-does-the-gradient-descent-algorithm-work-in-machine-learning/">How Does the Gradient Descent Algorithm Work in Machine Learning?</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31">Stochastic Gradient Descent — Clearly Explained !!</a></li>
+<li><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/gradient-descent-for-machine-learning/">Gradient Descent For Machine Learning</a></li>
+</ul>
+<h2 id="Activation-Functions"><a href="#Activation-Functions" class="headerlink" title="Activation Functions"></a><strong>Activation Functions</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#linear">Linear</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#elu">ELU</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#relu">ReLU</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#leakyrelu">LeakyReLU</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#sigmoid">Sigmoid</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#tanh">Tanh</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html#softmax">Softmax</a></li>
+</ul>
+<h2 id="References-Sources"><a href="#References-Sources" class="headerlink" title="References/Sources"></a>References/Sources</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gradient">https://en.wikipedia.org/wiki/Gradient</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gradient_descent">https://en.wikipedia.org/wiki/Gradient_descent</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34378516">神经网络（全连接）的前向和反向传播</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UJwK6jAStmg">https://www.youtube.com/watch?v=UJwK6jAStmg</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Loss_function">https://en.wikipedia.org/wiki/Loss_function</a></li>
+<li><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/179026/objective-function-cost-function-loss-function-are-they-the-same-thing">https://stats.stackexchange.com/questions/179026/objective-function-cost-function-loss-function-are-they-the-same-thing</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014313009/article/details/51039334?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&utm_relevant_index=2">反向传播算法（过程及公式推导）</a></li>
+<li><a target="_blank" rel="noopener" href="https://brilliant.org/wiki/backpropagation/#">Backpropagation</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/charlotte77/p/5629865.html">一文弄懂神经网络中的反向传播法——BackPropagation</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2020/10/how-does-the-gradient-descent-algorithm-work-in-machine-learning/">How Does the Gradient Descent Algorithm Work in Machine Learning?</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/stochastic-gradient-descent-clearly-explained-53d239905d31">Stochastic Gradient Descent — Clearly Explained !!</a></li>
+<li><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/gradient-descent-for-machine-learning/">Gradient Descent For Machine Learning</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://photographb.cn/2022/01/23/Notes-on-Neural-Network/" data-id="ckyqh08ja0003ph4145gbdl99" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning-Neural-Network/" rel="tag">Deep Learning, Neural Network</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/01/23/Notes-on-Transfer-Learning/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      Notes on Transfer Learning
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2022/01/17/blog-how-to/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">Hexo+GitHubPages+腾讯云搭建个人博客</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'ef6c539a18a9383d1cef',
+    clientSecret: 'acd4d96447b66b8d55751f961bd8235e19dfa065',
+    repo: 'blog-gitalk',
+    owner: 'HaibiPeng',
+    admin: ['HaibiPeng'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>PhotograpHB &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/coldplay.png" alt="PhotograpHB"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">Categories</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">Links</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

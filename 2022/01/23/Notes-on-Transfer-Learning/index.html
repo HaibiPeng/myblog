@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="programmer, photographer, PHB, PhotograpHB">
+  
+  
+  <meta name="description" content="All about a Programmer, a Photographer and PHB">
+  
+  <title>
+    Notes on Transfer Learning |
+    
+    PhotograpHB
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="PhotograpHB" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-Notes-on-Transfer-Learning" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  Notes on Transfer Learning
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/01/23/Notes-on-Transfer-Learning/" class="article-date">
+  <time datetime="2022-01-22T23:21:34.000Z" itemprop="datePublished">2022-01-23</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      <!--  -->
+      
+      
+      
+      <h1 id="Transfer-Learning"><a href="#Transfer-Learning" class="headerlink" title="Transfer Learning"></a>Transfer Learning</h1><h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><h3 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transfer_learning">Transfer learning (TL)</a> is a research problem in machine learning (ML) that focuses on <strong>storing knowledge gained while solving one problem and applying it to a different but related problem</strong>.</p>
+<p>It is a machine-learning method where the application of knowledge <strong>obtained from a model used in one task</strong> can be <strong>reused as a foundation point</strong> for another task.</p>
+<ul>
+<li>Ability of a system to recognize and apply knowledge and skills learned in previous domains/tasks to novel domains/tasks.</li>
+</ul>
+<h3 id="2-Domain-and-Task"><a href="#2-Domain-and-Task" class="headerlink" title="2. Domain and Task"></a>2. Domain and Task</h3><ul>
+<li><p>Domain: consists of: a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Feature_space">feature space</a> X and a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Marginal_distribution">marginal probability distribution</a> P(X)</p>
+</li>
+<li><p>Task: consists of two components: a label space Y and an objective predictive function f: X → Y</p>
+</li>
+</ul>
+<h2 id="Different-Types-of-Transfer-Learning"><a href="#Different-Types-of-Transfer-Learning" class="headerlink" title="Different Types of Transfer Learning"></a>Different Types of Transfer Learning</h2><p>(1) <strong>Inductive Transfer Learning (归纳式迁移学习).</strong> The source and target <em><strong>domains are the same(domains一样)</strong></em>, however, their <em><strong>tasks are still different(tasks不一样)</strong></em> from each another. The model will use <em><strong>inductive biases</strong></em> from the source domain to help improve the performance of the target task. The source task <em><strong>may or may not contain labeled data</strong></em>, further leading onto the model using multitask learning and self-taught learning.</p>
+<ul>
+<li><strong>multitask learning（多任务学习）</strong>：source domain的labeled数据可得。</li>
+<li><strong>self-taught learning（自学习）</strong>：source domain的labeled数据不可得。</li>
+</ul>
+<p>(2) <strong>Transductive Transfer Learning (直推式迁移学习).</strong> The source and target <em><strong>tasks share similarities(tasks类似)</strong></em>, however, the <em><strong>domains are different(domains不一样)</strong></em>. The source domain contains a lot of <em><strong>labeled data</strong></em>, whereas there is <em><strong>an absence of labeled</strong></em> data in the target domain, further leading onto the model using domain adaptation.</p>
+<p>Based on the number of domains and tasks, it can also be further divided into two types:</p>
+<ul>
+<li><strong>Domain Adaptation（域适配）</strong>：不同的domains+single task</li>
+<li><strong>Sample Selection Bias（样本选择偏差 / Covariance Shift（协方差转变）</strong>：single domain+single task</li>
+</ul>
+<p>(3) <strong>Unsupervised Transfer Learning (无监督迁移学习).</strong> Unsupervised learning is when an algorithm is <em><strong>subjected to being able to identify patterns in data sets that have not been labeled or classified</strong></em>. In this case, the source and target <em><strong>domains are similar(domains类似)</strong></em>, however, <em><strong>the tasks are different</strong></em>, where <em><strong>data is unlabeled in both source and target(都不可得)</strong></em>. Techniques such as dimensionality reduction and clustering are well known in unsupervised learning.</p>
+<p>Summarization the different settings and scenarios for each of the above techniques in the following table.</p>
+<figure>
+    <img src="https://miro.medium.com/max/2000/1*ZEJeJS06czdyPwov5EbCuQ.png" alt="Types of Transfer Learning Strategies and their Settings">
+    <figcaption align="center" style="font-size: 12px">Types of Transfer Learning Strategies and their Settings</figcaption>
+</figure>
+
+
+<h2 id="What-to-transfer"><a href="#What-to-transfer" class="headerlink" title="What to transfer"></a>What to transfer</h2><h3 id="1-Homogeneous-Transfer-Learning-同构迁移学习"><a href="#1-Homogeneous-Transfer-Learning-同构迁移学习" class="headerlink" title="1. Homogeneous Transfer Learning (同构迁移学习)"></a>1. <strong>Homogeneous Transfer Learning</strong> (同构迁移学习)</h3><p>Homogeneous Transfer learning approaches are developed and proposed to handle situations where <em><strong>the domains are of the same feature space</strong></em>.</p>
+<p>In Homogeneous Transfer learning, <em><strong>domains have only a slight difference in marginal distributions</strong></em>. These approaches adapt the domains by <em><strong>correcting the sample selection bias or covariate shift</strong></em>.</p>
+<p>(1) <strong>Instance-based transfer</strong>（样本迁移）</p>
+<p>It covers a simple scenario in which there is <em><strong>a large amount of labeled data in the source domain and a limited number in the target domain</strong></em>. Both the domains and feature spaces <em><strong>differ only in marginal distributions</strong></em>.</p>
+<p>In this scenario, it is natural to consider <em><strong>adapting the marginal distributions</strong></em>. Instance-based Transfer learning <em><strong>reassigns weights to the source domain instances in the loss function</strong></em>.</p>
+<p>Instance reweighting（样本重新调整权重） and importance sampling（重要性采样）are two main approaches used in instance-based TL.</p>
+<p>(2) <strong>Feature-representation transfer</strong>（特征迁移）</p>
+<p>Feature-based approaches transform the original features to create a new feature representation. This approach can further be divided into two subcategories, i.e., asymmetric and symmetric Feature-based Transfer Learning.</p>
+<ul>
+<li><strong>Asymmetric approaches</strong> transform the source features to match the target ones. In other words, we <em><strong>take the features from the source domain and fit them into the target feature space</strong></em>. There can be some information loss in this process due to the marginal difference in the feature distribution.</li>
+<li><strong>Symmetric approaches</strong> find a common latent feature space and then transform both the source and the target features into this new feature representation.</li>
+</ul>
+<p>(3) <strong>Parameter transfer</strong>（参数/模型迁移）</p>
+<p>The parameter-based transfer learning approaches transfer the knowledge at the <em><strong>model/parameter level</strong></em>.</p>
+<p>This approach involves transferring knowledge through the shared parameters of the source and target domain learner models. One way to transfer the learned knowledge can be <em><strong>by creating multiple source learner models and optimally combining the re-weighted learners similar to ensemble learners to form an improved target learner</strong></em>.</p>
+<p>The idea behind parameter-based methods is that <em><strong>a well-trained model on the source domain has learned a well-defined structure, and if two tasks are related, this structure can be transferred to the target model</strong></em>. In general, there are two ways to share the weights in deep learning models: </p>
+<ul>
+<li><strong>Soft weight sharing</strong>. The model is expected to be close to the already learned features and is usually penalized if its weights deviate significantly from a given set of weights.</li>
+<li><strong>Hard weight sharing</strong>. We share the exact weights among different models.</li>
+</ul>
+<p>(4) <strong>Relational-knowledge transfer</strong>（关系迁移）</p>
+<p>Relational-based transfer learning approaches mainly focus on <em><strong>learning the relations between the source and a target domain</strong></em> and <em><strong>using this knowledge to derive past knowledge and use it in the current context</strong></em>.</p>
+<p>Such approaches transfer <em><strong>the logical relationship or rules learned in the source domain to the target domain</strong></em>.</p>
+<p>For example, if we learn the relationship between different elements of the speech in a male voice, it can help significantly to analyze the sentence in another voice.</p>
+<h3 id="2-Heterogeneous-Transfer-Learning-异构迁移学习"><a href="#2-Heterogeneous-Transfer-Learning-异构迁移学习" class="headerlink" title="2. Heterogeneous Transfer Learning (异构迁移学习)"></a>2. <strong>Heterogeneous Transfer Learning</strong> (异构迁移学习)</h3><p>It is often challenging to collect labeled source domain data with the same feature space as the target domain, and Heterogeneous Transfer learning methods are developed to address such limitations.  </p>
+<p>This technique aims to <em><strong>solve the issue of source and target domains having differing feature spaces and other concerns like differing data distributions and label spaces</strong></em>. Heterogeneous Transfer Learning is applied in cross-domain tasks such as cross-language text categorization, text-to-image classification, and many others.</p>
+<p>The following table clearly summarizes the relationship between different transfer learning strategies and what to transfer.</p>
+<figure>
+    <img src="https://miro.medium.com/max/700/1*xK81ohzG-tLRKVexowUvgw.png" alt="Transfer Learning Strategies and Types of Transferable Components">
+    <figcaption align="center" style="font-size: 12px">Transfer Learning Strategies and Types of Transferable Components</figcaption>
+</figure>
+
+<figure>
+    <img src="https://miro.medium.com/max/611/1*mEHO0-LifV7MgwXSpY9wyQ.png" alt="An overview of different settings of transfer">
+    <figcaption align="center" style="font-size: 12px">An overview of different settings of transfer</figcaption>
+</figure>
+
+<h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><h3 id="For-computer-vision"><a href="#For-computer-vision" class="headerlink" title="For computer vision"></a>For computer vision</h3><ol>
+<li>Xception</li>
+<li>VGG16</li>
+<li>VGG19</li>
+<li>ResNet50</li>
+<li>InceptionV3</li>
+<li>InceptionResNetV2</li>
+<li>MobileNet</li>
+<li>MobileNetV2</li>
+<li>DenseNetV2</li>
+<li>DenseNet121</li>
+<li>DenseNet169</li>
+<li>DenseNet201</li>
+<li>NASNetMobile</li>
+<li>NASNetLarge</li>
+</ol>
+<h3 id="For-natural-language-processing"><a href="#For-natural-language-processing" class="headerlink" title="For natural language processing"></a>For natural language processing</h3><ol>
+<li>Universal Sentence Encoder by Google</li>
+<li>Bidirectional Encoder Representations from Transformers (BERT) by Google</li>
+</ol>
+<h3 id="For-sound-recognition"><a href="#For-sound-recognition" class="headerlink" title="For sound recognition"></a>For sound recognition</h3><ol>
+<li>AudioSet</li>
+<li>FreeSound</li>
+<li>SoundWatch</li>
+</ol>
+<h1 id="References-sources"><a href="#References-sources" class="headerlink" title="References/sources"></a>References/sources</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/a-comprehensive-hands-on-guide-to-transfer-learning-with-real-world-applications-in-deep-learning-212bf3b2f27a">A Comprehensive Hands-on Guide to Transfer Learning with Real-World Applications in Deep Learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.v7labs.com/blog/transfer-learning-guide">A Newbie-Friendly Guide to Transfer Learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/vvnzhang2095/article/details/79882013?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&utm_relevant_index=2">迁移学习–综述</a></li>
+<li>Pan S J, Yang Q. A survey on transfer learning[J]. IEEE Transactions on knowledge and data engineering, 2009, 22(10): 1345-1359.</li>
+<li>Weiss K, Khoshgoftaar T M, Wang D D. A survey of transfer learning[J]. Journal of Big data, 2016, 3(1): 1-40.</li>
+<li>Zhuang F, Qi Z, Duan K, et al. A comprehensive survey on transfer learning[J]. Proceedings of the IEEE, 2020, 109(1): 43-76.</li>
+<li>Carney M, Webster B, Alvarado I, et al. Teachable machine: Approachable Web-based tool for exploring machine learning classification[C]//Extended abstracts of the 2020 CHI conference on human factors in computing systems. 2020: 1-8.</li>
+<li>Goodman S M, Liu P, Jain D, et al. Toward user-driven sound recognizer personalization with people who are d/deaf or hard of hearing[J]. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2021, 5(2): 1-23.</li>
+<li>Laput G, Ahuja K, Goel M, et al. Ubicoustics: Plug-and-play acoustic activity recognition[C]//Proceedings of the 31st Annual ACM Symposium on User Interface Software and Technology. 2018: 213-224.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jindongwang/transferlearning">https://github.com/jindongwang/transferlearning</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/googlecreativelab/teachable-machine-boilerplate">https://github.com/googlecreativelab/teachable-machine-boilerplate</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://photographb.cn/2022/01/23/Notes-on-Transfer-Learning/" data-id="ckyqh08j70001ph41ffvdcqoi" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Transfer-Learning-Machine-Learning-Deep-Learning/" rel="tag">Transfer Learning, Machine Learning, Deep Learning</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/2022/01/23/Notes-on-Neural-Network/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">Notes on Neural Network</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'ef6c539a18a9383d1cef',
+    clientSecret: 'acd4d96447b66b8d55751f961bd8235e19dfa065',
+    repo: 'blog-gitalk',
+    owner: 'HaibiPeng',
+    admin: ['HaibiPeng'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>PhotograpHB &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/coldplay.png" alt="PhotograpHB"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">Categories</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">Links</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
