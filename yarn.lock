@@ -744,6 +744,15 @@
   dependencies:
     "hexo-pagination" "1.0.0"
 
+"hexo-generator-wxapi@^1.0.6":
+  "integrity" "sha1-22cbltPu9GdNYHzMM/S1SVY/R84="
+  "resolved" "https://registry.npmmirror.com/hexo-generator-wxapi/download/hexo-generator-wxapi-1.0.6.tgz"
+  "version" "1.0.6"
+  dependencies:
+    "hexo-pagination" "^0.1.0"
+    "lodash.pick" "^4.4.0"
+    "nunjucks" "^3.0.1"
+
 "hexo-i18n@^1.0.0":
   "integrity" "sha1-eYP7OjE+kGFbhN2PqUanHEie9b0="
   "resolved" "https://registry.npm.taobao.org/hexo-i18n/download/hexo-i18n-1.0.0.tgz"
@@ -1240,7 +1249,7 @@
   "resolved" "https://registry.npm.taobao.org/normalize-path/download/normalize-path-3.0.0.tgz"
   "version" "3.0.0"
 
-"nunjucks@^3.0.0", "nunjucks@^3.2.1", "nunjucks@^3.2.2":
+"nunjucks@^3.0.0", "nunjucks@^3.0.1", "nunjucks@^3.2.1", "nunjucks@^3.2.2":
   "integrity" "sha1-GzNhUkcpDpTigmO12FXs52VkijE="
   "resolved" "https://registry.npmmirror.com/nunjucks/download/nunjucks-3.2.3.tgz"
   "version" "3.2.3"

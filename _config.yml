@@ -122,11 +122,36 @@ feed:
      content:
      content_limit: 140
      content_limit_delim: ' '
-     order_by: -date	
+     order_by: -date
 
 
 # 对外API
-restful:
+# restful:
+#   # site 可配置为数组选择性生成某些属性
+#   # site: ['title', 'subtitle', 'description', 'author', 'since', email', 'favicon', 'avatar']
+#   site: true        # hexo.config mix theme.config
+#   posts_size: 10    # 文章列表分页，0 表示不分页
+#   posts_props:      # 文章列表项的需要生成的属性
+#     title: true
+#     slug: true
+#     date: true
+#     updated: true
+#     comments: true
+#     path: true
+#     excerpt: false
+#     cover: true      # 封面图，取文章第一张图片
+#     content: true
+#     keywords: true
+#     categories: true
+#     tags: true
+#   categories: true         # 分类数据
+#   use_category_slug: true # Use slug for filename of category data
+#   tags: true               # 标签数据
+#   use_tag_slug: true      # Use slug for filename of tag data
+#   post: true               # 文章数据
+#   pages: true
+
+restful_api:
   # site 可配置为数组选择性生成某些属性
   # site: ['title', 'subtitle', 'description', 'author', 'since', email', 'favicon', 'avatar']
   site: true        # hexo.config mix theme.config
@@ -149,4 +174,10 @@ restful:
   tags: true               # 标签数据
   use_tag_slug: true      # Use slug for filename of tag data
   post: true               # 文章数据
-  pages: true
+  pages: true            # 额外的 Hexo 页面数据, 如 About
+  swipers_list: []          # 生成指定的页面信息,做指定的轮播文章展示
+  search_all:                  #  配置全局搜索
+    enable: true
+    path: api/search.json  
+    field: post
+    content: true
