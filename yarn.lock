@@ -722,14 +722,6 @@
     "hexo-pagination" "0.0.2"
     "object-assign" "^4.0.1"
 
-"hexo-generator-restful@^0.2.3":
-  "integrity" "sha1-fD61lXd78p7DQYWxc3t4s3wWfb8="
-  "resolved" "https://registry.npmmirror.com/hexo-generator-restful/download/hexo-generator-restful-0.2.3.tgz"
-  "version" "0.2.3"
-  dependencies:
-    "hexo-pagination" "^0.1.0"
-    "lodash.pick" "^4.4.0"
-
 "hexo-generator-searchdb@^1.4.0":
   "integrity" "sha1-5ndDeNhBy6psy8ggbOFKSSs6EV4="
   "resolved" "https://registry.nlark.com/hexo-generator-searchdb/download/hexo-generator-searchdb-1.4.0.tgz"
@@ -743,15 +735,6 @@
   "version" "1.0.0"
   dependencies:
     "hexo-pagination" "1.0.0"
-
-"hexo-generator-wxapi@^1.0.6":
-  "integrity" "sha1-22cbltPu9GdNYHzMM/S1SVY/R84="
-  "resolved" "https://registry.npmmirror.com/hexo-generator-wxapi/download/hexo-generator-wxapi-1.0.6.tgz"
-  "version" "1.0.6"
-  dependencies:
-    "hexo-pagination" "^0.1.0"
-    "lodash.pick" "^4.4.0"
-    "nunjucks" "^3.0.1"
 
 "hexo-i18n@^1.0.0":
   "integrity" "sha1-eYP7OjE+kGFbhN2PqUanHEie9b0="
@@ -773,13 +756,6 @@
   "version" "3.0.0"
   dependencies:
     "nanocolors" "^0.2.12"
-
-"hexo-pagination@^0.1.0":
-  "integrity" "sha1-VPC+EuauUdHApvACNnS6d6xRTOM="
-  "resolved" "https://registry.nlark.com/hexo-pagination/download/hexo-pagination-0.1.0.tgz"
-  "version" "0.1.0"
-  dependencies:
-    "object-assign" "^4.1.0"
 
 "hexo-pagination@0.0.2":
   "integrity" "sha1-jPRwx9sN5bGKOSanbesZQBXffys="
@@ -1087,11 +1063,6 @@
     "prelude-ls" "~1.1.2"
     "type-check" "~0.3.2"
 
-"lodash.pick@^4.4.0":
-  "integrity" "sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM="
-  "resolved" "https://registry.npm.taobao.org/lodash.pick/download/lodash.pick-4.4.0.tgz"
-  "version" "4.4.0"
-
 "lodash@^4.7.0":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmmirror.com/lodash/download/lodash-4.17.21.tgz"
@@ -1249,7 +1220,7 @@
   "resolved" "https://registry.npm.taobao.org/normalize-path/download/normalize-path-3.0.0.tgz"
   "version" "3.0.0"
 
-"nunjucks@^3.0.0", "nunjucks@^3.0.1", "nunjucks@^3.2.1", "nunjucks@^3.2.2":
+"nunjucks@^3.0.0", "nunjucks@^3.2.1", "nunjucks@^3.2.2":
   "integrity" "sha1-GzNhUkcpDpTigmO12FXs52VkijE="
   "resolved" "https://registry.npmmirror.com/nunjucks/download/nunjucks-3.2.3.tgz"
   "version" "3.2.3"
@@ -1263,7 +1234,7 @@
   "resolved" "https://registry.npm.taobao.org/nwsapi/download/nwsapi-2.2.0.tgz"
   "version" "2.2.0"
 
-"object-assign@^4.0.1", "object-assign@^4.1.0":
+"object-assign@^4.0.1":
   "integrity" "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM="
   "resolved" "https://registry.npm.taobao.org/object-assign/download/object-assign-4.1.1.tgz?cache=0&sync_timestamp=1598869145302&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fobject-assign%2Fdownload%2Fobject-assign-4.1.1.tgz"
   "version" "4.1.1"
