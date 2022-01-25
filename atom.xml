@@ -6,7 +6,7 @@
   <link href="https://photographb.cn/atom.xml" rel="self"/>
   
   <link href="https://photographb.cn/"/>
-  <updated>2022-01-22T23:44:27.985Z</updated>
+  <updated>2022-01-25T11:52:23.761Z</updated>
   <id>https://photographb.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Federated Learning and Split Learning Basics</title>
+    <link href="https://photographb.cn/2022/01/25/Federated-Learning-and-Split-Learning-Basics/"/>
+    <id>https://photographb.cn/2022/01/25/Federated-Learning-and-Split-Learning-Basics/</id>
+    <published>2022-01-25T11:21:14.000Z</published>
+    <updated>2022-01-25T11:52:23.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Often there needs to be built</summary>
+        
+      
+    
+    
+    
+    <category term="Machine Learning" scheme="https://photographb.cn/categories/Machine-Learning/"/>
+    
+    <category term="Deep Learning" scheme="https://photographb.cn/categories/Deep-Learning/"/>
+    
+    <category term="Distributed Systems" scheme="https://photographb.cn/categories/Distributed-Systems/"/>
+    
+    
+    <category term="Machine Learning, Deep Learning, Distributed Systems, Security and Privacy" scheme="https://photographb.cn/tags/Machine-Learning-Deep-Learning-Distributed-Systems-Security-and-Privacy/"/>
+    
+  </entry>
   
   <entry>
     <title>Notes on Transfer Learning</title>

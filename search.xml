@@ -1,6 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Federated Learning and Split Learning Basics</title>
+    <url>/2022/01/25/Federated-Learning-and-Split-Learning-Basics/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Often there needs to be built deep learning applications, that need a lot data, but this data might be available from multiple entities (humans, organizations). And this data might be sensitive, meaning the entities (humans or organizations) from whom we need the data might not want to share this data due to privacy reasons.</p>
+<p>Federated learning (FL) and split learning (SL) are two popular distributed machine learning approaches, which can enable collaborative training of distributed machine learning models without any data sharing. Both follow a model-to-data scenario; clients train and test machine learning models without sharing raw data. SL provides better model privacy than FL due to the machine learning model architecture split between clients and the server. Moreover, the split model makes SL a better option for resource-constrained environments.</p>
+<p>The blog introduces some basic concepts of FL and SL and it is recommended to check the references/sources at the end.</p>
+<h1 id="Federated-Learning"><a href="#Federated-Learning" class="headerlink" title="Federated Learning"></a>Federated Learning</h1><h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><p><em><strong><a href="https://en.wikipedia.org/wiki/Federated_learning#Definition">Federated learning</a></strong></em> is a machine learning technique that trains an algorithm <strong>across multiple decentralized edge devices or servers</strong> holding local data samples, <strong>without exchanging them</strong>. </p>
+<p>It aims at training a machine learning algorithm, for instance deep neural networks, <strong>on multiple local datasets contained in local nodes without explicitly exchanging data samples</strong>. The general principle consists in <strong>training local models on local data samples and exchanging parameters</strong> (e.g. the weights and biases of a deep neural network) between these local nodes at some frequency to generate a global model shared by all nodes.</p>
+<ul>
+<li>Data protection, telecommunications, IoT, and pharmaceutics are among the sectors where it’s used.</li>
+</ul>
+<h2 id="Categorization-of-Federated-Learning"><a href="#Categorization-of-Federated-Learning" class="headerlink" title="Categorization of Federated Learning"></a>Categorization of Federated Learning</h2><h3 id="Horizontal-federated-learning"><a href="#Horizontal-federated-learning" class="headerlink" title="Horizontal federated learning"></a>Horizontal federated learning</h3><p>Horizontal federated learning, or sample-based federated learning, is introduced in the scenarios that data sets share the same feature space but different in samples, i.e., the user features ( X1, X2, … ) of the two datasets have a large overlap, while the user ( U1, U2, … ) overlap is small.</p>
+<figure>
+    <img src="https://media.arxiv-vanity.com/render-output/5547782/HFL.png" alt="Categorization of Federated Learning">
+    <figcaption align="center" style="font-size: 12px">(a) Horizontal Federated Learning</figcaption>
+</figure>
+
+<figure>
+    <img src="https://media.arxiv-vanity.com/render-output/5547782/hfl_arc.png" alt="Architecture for a horizontal federated learning system">
+    <figcaption align="center" style="font-size: 12px">Architecture for a horizontal federated learning system</figcaption>
+</figure>
+
+<h3 id="Vertical-federated-learning"><a href="#Vertical-federated-learning" class="headerlink" title="Vertical federated learning"></a>Vertical federated learning</h3><p>Vertical federated learning, or feature-based federated learning is applicable to the cases that two data sets share the same sample ID space but differ in feature space, i.e., the overlap of users ( U1, U2, … ) of the two datasets is large, while the overlap of user features ( X1, X2, … ) is small;</p>
+<figure>
+    <img src="https://media.arxiv-vanity.com/render-output/5547782/VFL.png" alt="Categorization of Federated Learning">
+    <figcaption align="center" style="font-size: 12px">(b) Vertical Federated Learning</figcaption>
+</figure>
+
+<figure>
+    <img src="https://media.arxiv-vanity.com/render-output/5547782/3.png" alt="Architecture for a vertical federated learning system">
+    <figcaption align="center" style="font-size: 12px">Architecture for a vertical federated learning system</figcaption>
+</figure>
+
+<h3 id="Federated-transfer-learning"><a href="#Federated-transfer-learning" class="headerlink" title="Federated transfer learning"></a>Federated transfer learning</h3><p>Federated transfer learning applies to the scenarios that the two data sets differ not only in samples but also in feature space, i.e., solves the problem that the overlap between users ( U1, U2, … ) and user features ( X1, X2, … ) of the two datasets is relatively small.</p>
+<figure>
+    <img src="https://media.arxiv-vanity.com/render-output/5547782/FTL.png" alt="Categorization of Federated Learning">
+    <figcaption align="center" style="font-size: 12px">(c) Federated Transfer Learning</figcaption>
+</figure>
+
+<h2 id="Benefits"><a href="#Benefits" class="headerlink" title="Benefits"></a>Benefits</h2><ul>
+<li>FL allows devices such as smartphones to <em><strong>learn a shared prediction model collaboratively while maintaining the training data on the devices</strong></em> rather than uploading and storing it on a central server.</li>
+<li>Moves model teaching to the edge, including gadgets like smartphones, laptops, IoT, and even “organizations” like hospitals that must work under stringent privacy regulations. It is a <em><strong>significant security advantage to keep personal data local</strong></em>.</li>
+<li>Since prediction takes place on the system itself, <em><strong>real-time prediction is feasible</strong></em>. The time lag caused by sending raw data to a central server and then shipping the results back to the system is reduced by FL.</li>
+<li>The amount of hardware equipment available is reduced by FL. FL versions need very little hardware, and what is available on mobile devices is more than adequate.</li>
+</ul>
+<h1 id="Split-Learning"><a href="#Split-Learning" class="headerlink" title="Split Learning"></a>Split Learning</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p><em><strong><a href="https://scholar.google.com/scholar?hl=zh-CN&as_sdt=0,5&q=split+learning&btnG=">Split learning</a></strong></em> naturally allows for various configurations of cooperating entities to train (and infer from) machine learning models without sharing any raw data or detailed information about the model.</p>
+<h2 id="Key-idea-and-steps"><a href="#Key-idea-and-steps" class="headerlink" title="Key idea and steps"></a>Key idea and steps</h2><p>In the simplest of configurations of split learning, let’s consider a client-server architecture. The steps are as follows.</p>
+<h3 id="Forward-Propagation"><a href="#Forward-Propagation" class="headerlink" title="Forward Propagation"></a>Forward Propagation</h3><ol>
+<li>Each client (for example, radiology center) trains a partial deep network up to a specific layer known as the <em><strong>cut layer</strong></em>. </li>
+<li>The outputs at the cut layer are sent to another entity (server/another client, for example, computational entity) which completes the rest of the training <em><strong>without looking at raw data from any client that holds the raw data</strong></em>. This completes a round of <em><strong>forward propagation</strong></em> without sharing raw data. <h3 id="Backward-Propagation"><a href="#Backward-Propagation" class="headerlink" title="Backward Propagation"></a>Backward Propagation</h3></li>
+<li>The gradients are now <em><strong>back propagated</strong></em> again from its last layer until the cut layer in a similar fashion. </li>
+<li>The gradients at the cut layer (and only these gradients) are sent back to radiology client centers. <em><strong>The rest of back propagation</strong></em> is now completed at the radiology client centers. </li>
+<li>This process is continued until the distributed split learning network is trained without looking at each others raw data.</li>
+</ol>
+<figure>
+    <img src="SL.png" alt="Data flow between the client and the server in Algorithm 1 and 2">
+    <figcaption align="center" style="font-size: 12px">Data flow between the client and the server in Algorithm 1 and 2</figcaption>
+</figure>
+
+<h2 id="Versatile-plug-and-play-configurations-of-split-learning"><a href="#Versatile-plug-and-play-configurations-of-split-learning" class="headerlink" title="Versatile plug-and-play configurations of split learning"></a>Versatile plug-and-play configurations of split learning</h2><p>Versatile configurations of split learning configurations cater to various practical settings of<br>i) multiple entities holding different modalities of patient data,<br>ii) centralized and local health entities collaborating on multiple tasks,<br>iii) learning without sharing labels,<br>iv) multi-task split learning,<br>v) multi-hop split learning and other hybrid possibilities to name a few as shown below and further detailed in this <a href="https://arxiv.org/pdf/1812.00564.pdf">paper</a>.</p>
+<figure>
+    <img src="https://dam-prod.media.mit.edu/thumb/2018/12/11/splitConfig_C4njd4y.png.1400x1400.png" alt="Versatile configurations of split learning configurations">
+    <figcaption align="center" style="font-size: 12px">Versatile configurations of split learning configurations</figcaption>
+</figure>
+
+<figure>
+    <img src="https://miro.medium.com/max/1400/1*G70zWOQ8e6YgBsx641Obmw.png" alt="SplitNN Configurations with and without label sharing">
+    <figcaption align="center" style="font-size: 12px">SplitNN Configurations with and without label sharing</figcaption>
+</figure>
+
+<h2 id="Benefits-1"><a href="#Benefits-1" class="headerlink" title="Benefits"></a>Benefits</h2><p><em><strong>Client-side communication costs are significantly reduced</strong></em> as the data to be transmitted is restricted to initial layers of the split learning network (splitNN) prior to the split. <em><strong>The client-side computation costs of learning the weights of the network are also significantly reduced</strong></em> for the same reason. In terms of model performance, <em><strong>the accuracies of Split NN remained competitive</strong></em> to other distributed deep learning methods like federated learning and large batch synchronous SGD with a drastically smaller client side computational burden when training on a larger number of clients.</p>
+<figure>
+    <img src="https://miro.medium.com/max/1400/1*Jdy8C7tCZHlBFjVz5xKvCA.png" alt="Split Learning advantages">
+    <figcaption align="center" style="font-size: 12px">Split Learning advantages</figcaption>
+</figure>
+
+<h2 id="References-Sources"><a href="#References-Sources" class="headerlink" title="References/Sources"></a>References/Sources</h2><ol>
+<li><a href="https://en.wikipedia.org/wiki/Federated_learning#Definition">https://en.wikipedia.org/wiki/Federated_learning#Definition</a></li>
+<li><a href="https://www.xenonstack.com/blog/edge-ai-vs-federated-learning">https://www.xenonstack.com/blog/edge-ai-vs-federated-learning</a></li>
+<li><a href="https://blog.csdn.net/weixin_45439861/article/details/100670390">https://blog.csdn.net/weixin_45439861/article/details/100670390</a></li>
+<li><a href="https://www.arxiv-vanity.com/papers/1902.04885/">https://www.arxiv-vanity.com/papers/1902.04885/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/79284686?utm_source=wechat_session">https://zhuanlan.zhihu.com/p/79284686?utm_source=wechat_session</a></li>
+<li><a href="https://blog.csdn.net/weixin_45439861/article/details/100670390">https://blog.csdn.net/weixin_45439861/article/details/100670390</a></li>
+<li>Yang, Qiang, et al. “Federated machine learning: Concept and applications.” ACM Transactions on Intelligent Systems and Technology (TIST) 10.2 (2019): 1-19.</li>
+<li>Liu, Yang, et al. “A secure federated transfer learning framework.” IEEE Intelligent Systems 35.4 (2020): 70-82.</li>
+<li>Chen, Yiqiang, et al. “Fedhealth: A federated transfer learning framework for wearable healthcare.” IEEE Intelligent Systems 35.4 (2020): 83-93.</li>
+<li>Li, Tian, et al. “Federated learning: Challenges, methods, and future directions.” IEEE Signal Processing Magazine 37.3 (2020): 50-60.</li>
+<li><a href="https://www.media.mit.edu/projects/distributed-learning-and-collaborative-learning-1/overview/">https://www.media.mit.edu/projects/distributed-learning-and-collaborative-learning-1/overview/</a></li>
+<li><a href="http://splitlearning.mit.edu/">http://splitlearning.mit.edu/</a></li>
+<li>Abuadbba, Sharif, et al. “Can we use split learning on 1d cnn models for privacy preserving training?.” Proceedings of the 15th ACM Asia Conference on Computer and Communications Security. 2020.</li>
+<li>Vepakomma, Praneeth, et al. “Split learning for health: Distributed deep learning without sharing raw patient data.” arXiv preprint arXiv:1812.00564 (2018).</li>
+<li>Vepakomma, Praneeth, et al. “No peek: A survey of private distributed deep learning.” arXiv preprint arXiv:1812.03288 (2018).</li>
+<li><a href="https://liveramp.com/developers/blog/privacy-preserving-split-learning/">https://liveramp.com/developers/blog/privacy-preserving-split-learning/</a></li>
+<li>Gupta, Otkrist, and Ramesh Raskar. “Distributed learning of deep neural network over multiple agents.” Journal of Network and Computer Applications 116 (2018): 1-8.</li>
+<li>Vepakomma, Praneeth, et al. “No peek: A survey of private distributed deep learning.” arXiv preprint arXiv:1812.03288 (2018).</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+        <category>Deep Learning</category>
+        <category>Distributed Systems</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning, Deep Learning, Distributed Systems, Security and Privacy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Notes on Transfer Learning</title>
     <url>/2022/01/23/Notes-on-Transfer-Learning/</url>
     <content><![CDATA[<h1 id="Transfer-Learning"><a href="#Transfer-Learning" class="headerlink" title="Transfer Learning"></a>Transfer Learning</h1><h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><h3 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h3><p><a href="https://en.wikipedia.org/wiki/Transfer_learning">Transfer learning (TL)</a> is a research problem in machine learning (ML) that focuses on <strong>storing knowledge gained while solving one problem and applying it to a different but related problem</strong>.</p>
@@ -190,30 +296,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/01/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>hello</category>
-      </categories>
-      <tags>
-        <tag>hello</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo+GitHubPages+腾讯云搭建个人博客</title>
     <url>/2022/01/17/blog-how-to/</url>
     <content><![CDATA[<p>本教程需要读者具有基础的编辑器(VSCode/WebStorm/其他…)和命令行知识，以及文档教程阅读和复现能力。以下大致说明以下步骤吧。</p>
@@ -277,6 +359,30 @@
       </categories>
       <tags>
         <tag>Hexo, 个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/01/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hello</category>
+      </categories>
+      <tags>
+        <tag>hello</tag>
       </tags>
   </entry>
 </search>
