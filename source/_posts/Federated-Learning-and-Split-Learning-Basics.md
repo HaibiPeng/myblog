@@ -91,10 +91,10 @@ In the simplest of configurations of split learning, let's consider a client-ser
 4. The gradients at the cut layer (and only these gradients) are sent back to radiology client centers. ***The rest of back propagation*** is now completed at the radiology client centers. 
 5. This process is continued until the distributed split learning network is trained without looking at each others raw data.
 
-<figure>
+<!-- <figure>
     <img src="SL.png" alt="Data flow between the client and the server in Algorithm 1 and 2">
     <figcaption align="center" style="font-size: 12px">Data flow between the client and the server in Algorithm 1 and 2</figcaption>
-</figure>
+</figure> -->
 
 ## Versatile plug-and-play configurations of split learning
 
