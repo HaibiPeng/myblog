@@ -54,10 +54,10 @@
 <li>The gradients at the cut layer (and only these gradients) are sent back to radiology client centers. <em><strong>The rest of back propagation</strong></em> is now completed at the radiology client centers. </li>
 <li>This process is continued until the distributed split learning network is trained without looking at each others raw data.</li>
 </ol>
-<figure>
+<!-- <figure>
     <img src="SL.png" alt="Data flow between the client and the server in Algorithm 1 and 2">
     <figcaption align="center" style="font-size: 12px">Data flow between the client and the server in Algorithm 1 and 2</figcaption>
-</figure>
+</figure> -->
 
 <h2 id="Versatile-plug-and-play-configurations-of-split-learning"><a href="#Versatile-plug-and-play-configurations-of-split-learning" class="headerlink" title="Versatile plug-and-play configurations of split learning"></a>Versatile plug-and-play configurations of split learning</h2><p>Versatile configurations of split learning configurations cater to various practical settings of<br>i) multiple entities holding different modalities of patient data,<br>ii) centralized and local health entities collaborating on multiple tasks,<br>iii) learning without sharing labels,<br>iv) multi-task split learning,<br>v) multi-hop split learning and other hybrid possibilities to name a few as shown below and further detailed in this <a href="https://arxiv.org/pdf/1812.00564.pdf">paper</a>.</p>
 <figure>
